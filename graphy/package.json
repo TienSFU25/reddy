@@ -1,0 +1,20 @@
+{
+  "name": "graphy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.4.6",
+    "express": "^4.16.4",
+    "graphql": "^14.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}

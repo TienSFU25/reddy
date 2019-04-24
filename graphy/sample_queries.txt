@@ -1,0 +1,22 @@
+# Write your query or mutation here
+query A {
+  movie(id: 1) {
+    id
+    title
+    releaseDate
+    stars {
+      name
+    }
+  }
+}
+
+query B {
+  person(id: 1) {
+    name
+    filmography {
+      id
+      title
+      releaseDate
+    }
+  }
+}

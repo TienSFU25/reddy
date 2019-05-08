@@ -31,7 +31,7 @@ class RandomNumberComponent extends React.Component {
 
     // way 2
     const str = randomNumber % 2 == 0 ? "even" : "odd";
-    const IsOdd2 = () => <div>{`Is ${str}`}</div>
+    const IsOdd2 = () => <div>{`Is ${str}`}</div>;
 
     return <div>
       {`The number is ${randomNumber}`}
@@ -53,6 +53,7 @@ class ListOfSkillsComponent extends React.Component {
   }
 }
 
+// JSX is equivalent to React.create_element('div', props, child);
 App = () => (<div id="our-app">
   <RandomNumberComponent />
   <ListOfSkillsComponent />

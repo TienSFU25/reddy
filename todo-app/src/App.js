@@ -21,10 +21,10 @@ class AddTodo extends React.Component {
 // stateless functional component
 // props is an object
 // {foo: 'bar, key: index}
-const TodoElement = ({ index, title, complete, check }) => {
+const TodoElement = ({ index, title, complete, check, item }) => {
   return (<li>
     {title}
-    <input type="checkbox" checked={complete} onClick={() => {check(index)}} />
+    <input type="checkbox" checked={complete} onClick={() => {check(item)}} />
     <button>Delete item</button>
   </li>);
 };
@@ -43,6 +43,7 @@ class TodoList extends React.Component {
       return <TodoElement key={index}
         index={index}
         foo="bar"
+        item={value}
         title={value.title}
         complete={value.complete} 
         check={check} />
@@ -81,7 +82,7 @@ class TodoApp extends React.Component {
     };
   }
 
-  check(id) {
+  _check(id) {
     console.log(`this is ${this}`);
     window.banana = this;
 
@@ -91,10 +92,23 @@ class TodoApp extends React.Component {
     this.setState({ toDo });
   }
 
-  // syntax for bind
-  // func_c = func_a.bind(some_object)
-  // func_c functionally same as func_a
-  // except that "this" in func_c is some_object
+  // sample item
+  // { id: 0, title: 'Learn React', complete: false }
+  check(newItem) {
+    const toDo = this.state.toDo;
+    // toDo[id].complete = !toDo[id].complete;
+    
+    const newTodo = toDo.map((item) => {
+      if (newItem.id === item.id) {
+        const oldComplete = item.complete;
+        item.complete = !oldComplete;
+      }
+
+      return item;
+    });
+
+    this.setState({ toDo: newTodo });
+  }
 
   render() {
     const toDo = this.state.toDo;
